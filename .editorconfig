@@ -298,7 +298,7 @@ dotnet_naming_rule.private_constants_rule.style = all_upper_style
 dotnet_naming_rule.private_constants_rule.symbols = private_constants_symbols
 dotnet_naming_rule.private_instance_fields_rule.import_to_resharper = as_predefined
 dotnet_naming_rule.private_instance_fields_rule.severity = warning
-dotnet_naming_rule.private_instance_fields_rule.style = lower_camel_case_style_1
+dotnet_naming_rule.private_instance_fields_rule.style = lower_camel_case_style
 dotnet_naming_rule.private_instance_fields_rule.symbols = private_instance_fields_symbols
 dotnet_naming_rule.private_static_fields_override_rule.import_to_resharper = False
 dotnet_naming_rule.private_static_fields_override_rule.severity = warning
@@ -306,7 +306,7 @@ dotnet_naming_rule.private_static_fields_override_rule.style = all_upper_style
 dotnet_naming_rule.private_static_fields_override_rule.symbols = private_static_fields_override_symbols
 dotnet_naming_rule.private_static_fields_rule.import_to_resharper = as_predefined
 dotnet_naming_rule.private_static_fields_rule.severity = warning
-dotnet_naming_rule.private_static_fields_rule.style = lower_camel_case_style_1
+dotnet_naming_rule.private_static_fields_rule.style = lower_camel_case_style
 dotnet_naming_rule.private_static_fields_rule.symbols = private_static_fields_symbols
 dotnet_naming_rule.private_static_readonly_rule.import_to_resharper = as_predefined
 dotnet_naming_rule.private_static_readonly_rule.severity = warning
@@ -375,9 +375,6 @@ dotnet_naming_symbols.private_static_fields_override_symbols.required_modifiers 
 dotnet_naming_symbols.private_static_fields_symbols.applicable_accessibilities = private
 dotnet_naming_symbols.private_static_fields_symbols.applicable_kinds = field
 dotnet_naming_symbols.private_static_fields_symbols.required_modifiers = static
-dotnet_naming_symbols.private_static_fields_symbols_1.applicable_accessibilities = local,private
-dotnet_naming_symbols.private_static_fields_symbols_1.applicable_kinds = field
-dotnet_naming_symbols.private_static_fields_symbols_1.required_modifiers = static
 dotnet_naming_symbols.private_static_fields_symbols_1.resharper_applicable_kinds = field
 dotnet_naming_symbols.private_static_fields_symbols_1.resharper_required_modifiers = static
 dotnet_naming_symbols.private_static_readonly_symbols.applicable_accessibilities = private
@@ -410,7 +407,6 @@ dotnet_style_qualification_for_field = false:suggestion
 dotnet_style_qualification_for_method = false:suggestion
 dotnet_style_qualification_for_property = false:suggestion
 dotnet_style_require_accessibility_modifiers = for_non_interface_members:suggestion
-file_header_template = 
 
 # ReSharper properties
 resharper_alignment_tab_fill_style = use_spaces
