@@ -84,8 +84,15 @@ echo "Let's get started, keep calm and wait, it may take few moments"
 echo "--- --- ---"
 echo ""
 
-dotnet tool restore
-dotnet tool update --global JetBrains.ReSharper.GlobalTools
+#
+# For first run un-comment the two commands down below
+# Don't forget add manifesto file `jetbrains.resharper.globaltools`
+# See the manifesto file here: `./.config/dotnet-tools.json`
+#
+# dotnet tool restore
+# dotnet tool update --global JetBrains.ReSharper.GlobalTools
+#
+
 jb cleanupcode ReSharperCleanupCodeDemo.sln --profile="Almost Full Cleanup" --disable-settings-layers=SolutionPersonal --verbosity=WARN
 
 REFORMATED_FILES=$(git diff --name-only)
