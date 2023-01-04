@@ -12,7 +12,7 @@ echo ""
 echo "--- --- ---"
 echo "Alright Cleanup Code Command-Line Tool"
 echo "Default settings:"
-echo "- auto commit re-formated code (-a): '$AUTO_COMMIT'"
+echo "- auto commit re-formatted code (-a): '$AUTO_COMMIT'"
 echo "--- --- ---"
 echo ""
 
@@ -40,17 +40,17 @@ if [ $AUTO_COMMIT != "yes" ] && [ $AUTO_COMMIT != "no" ]; then
     exit $INVALID_ARGUMENT_ERROR
 fi
 
-UNSTAGED_CHANGES=$(git diff --name-only)
-if [ -z "$UNSTAGED_CHANGES" ]; then
+UN_STAGED_CHANGES=$(git diff --name-only)
+if [ -z "$UN_STAGED_CHANGES" ]; then
     echo ""
     echo "--- --- ---"
-    echo "Right, there are no unstaged changes"
+    echo "Right, there are no un-staged changes"
     echo "--- --- ---"
     echo ""
 else
     echo ""
     echo "--- --- ---"
-    echo "There are unstaged changes"
+    echo "There are un-staged changes"
     echo "Commit them before run the script"
     echo "--- --- ---"
     echo ""
@@ -95,12 +95,12 @@ echo ""
 
 jb cleanupcode ReSharperCleanupCodeDemo.sln --profile="Almost Full Cleanup" --disable-settings-layers=SolutionPersonal --verbosity=WARN
 
-REFORMATED_FILES=$(git diff --name-only)
+RE_FORMATTED_FILES=$(git diff --name-only)
 
-if [ -z "$REFORMATED_FILES" ]; then
+if [ -z "$RE_FORMATTED_FILES" ]; then
     echo ""
     echo "--- --- ---"
-    echo "No files re-formated, everything is clean, congratulation!"
+    echo "No files re-formatted, everything is clean, congratulation!"
     echo "--- --- ---"
     echo ""
     exit $SUCCESS
@@ -109,7 +109,7 @@ fi
 if [ $AUTO_COMMIT = "no" ]; then
     echo ""
     echo "--- --- ---"
-    echo "There is re-formated code but it will not be auto commited"
+    echo "There is re-formatted code but it will not be auto committed"
     echo "--- --- ---"
     echo ""
     exit $SUCCESS
@@ -117,13 +117,13 @@ fi
 
 echo ""
 echo "--- --- ---"
-echo "There are re-formated files to be committed"
+echo "There are re-formatted files to be committed"
 echo "--- --- ---"
 echo ""
 
 git diff --name-only
 
-for FILE in "${REFORMATED_FILES[@]}"; do
+for FILE in "${RE_FORMATTED_FILES[@]}"; do
     git add $FILE
 done
 
@@ -153,7 +153,7 @@ git status
 
 echo ""
 echo "--- --- ---"
-echo "All re-formated code has been commited with success"
+echo "All re-formatted code has been committed with success"
 echo "--- --- ---"
 echo ""
 exit $SUCCESS
