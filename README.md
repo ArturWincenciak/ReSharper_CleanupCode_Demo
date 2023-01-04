@@ -1,1 +1,1 @@
-# ReSharper_CleanupCode_Demo
+# GitHub Action of ReSharper CLI CleanupCode Demo
