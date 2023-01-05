@@ -12,7 +12,7 @@ echo ""
 echo "--- --- ---"
 echo "Alright Cleanup Code Command-Line Tool"
 echo "Default settings:"
-echo "- auto commit re-formatted code (-a): '$AUTO_COMMIT'"
+echo "- auto commit re-formatted code (-a): '${AUTO_COMMIT}'"
 echo "--- --- ---"
 echo ""
 
@@ -25,23 +25,23 @@ while getopts a: flag; do
         echo "Invalid argument's flag is not handled"
         echo "--- --- ---"
         echo ""
-        exit $INVALID_ARGUMENT_ERROR
+        exit ${INVALID_ARGUMENT_ERROR}
         ;;
     esac
 done
 
-if [ $AUTO_COMMIT != "yes" ] && [ $AUTO_COMMIT != "no" ]; then
+if [ "${AUTO_COMMIT}" != "yes" ] && [ "${AUTO_COMMIT}" != "no" ]; then
     echo ""
     echo "--- --- ---"
-    echo "INVALID ARGUMENT OF '-a' equals '$AUTO_COMMIT'"
+    echo "INVALID ARGUMENT OF '-a' equals '${AUTO_COMMIT}'"
     echo "Set 'yes' or 'no' or omit to use default equals 'no'"
     echo "--- --- ---"
     echo ""
-    exit $INVALID_ARGUMENT_ERROR
+    exit ${INVALID_ARGUMENT_ERROR}
 fi
 
 UN_STAGED_CHANGES=$(git diff --name-only)
-if [ -z "$UN_STAGED_CHANGES" ]; then
+if [ -z "${UN_STAGED_CHANGES}" ]; then
     echo ""
     echo "--- --- ---"
     echo "Right, there are no un-staged changes"
@@ -56,11 +56,11 @@ else
     echo ""
 
     git diff --name-only
-    exit $YOU_NEED_NO_CHANGES_BEFORE_RUN_CLEANUP_ERROR
+    exit ${YOU_NEED_NO_CHANGES_BEFORE_RUN_CLEANUP_ERROR}
 fi
 
 STAGED_UNCOMMITTED=$(git diff --staged --name-only)
-if [ -z "$STAGED_UNCOMMITTED" ]; then
+if [ -z "${STAGED_UNCOMMITTED}" ]; then
     echo ""
     echo "--- --- ---"
     echo "Right, there is no any changes, repo is ready to cleanup"
@@ -78,9 +78,33 @@ else
     exit $YOU_NEED_NO_CHANGES_BEFORE_RUN_CLEANUP_ERROR
 fi
 
+#
+# Parse arguments and put them into an array to call command
+# I'm at a loss for words to describe how I managed to nail this function
+# Once again I understand why all Ops always looks stressed out
+#
+INPUT_JB_CLEANUP_CODE_ARG="--profile=Almost Full Cleanup --disable-settings-layers=SolutionPersonal --verbosity=INFO"
+ARG_DELIMITER="--"
+S=${INPUT_JB_CLEANUP_CODE_ARG}${ARG_DELIMITER}
+COMMAND_ARG_ARRAY=()
+
+while [[ $S ]]; do
+    ITEM="${S%%"$ARG_DELIMITER"*}"
+    if [ -n "${ITEM}" ]; then
+        if [ "${ITEM:0-1}" == " " ]; then
+            ITEM="${ITEM::-1}"
+        fi
+        COMMAND_ARG_ARRAY+=("--${ITEM}")
+    fi
+    S=${S#*"$ARG_DELIMITER"}
+done
+
 echo ""
 echo "--- --- ---"
 echo "Let's get started, keep calm and wait, it may take few moments"
+for arg in "${COMMAND_ARG_ARRAY[@]}"; do
+    echo "Command argument: [${arg}]"
+done
 echo "--- --- ---"
 echo ""
 
@@ -93,7 +117,7 @@ echo ""
 # dotnet tool update --global JetBrains.ReSharper.GlobalTools
 #
 
-jb cleanupcode ReSharperCleanupCodeDemo.sln --profile="Almost Full Cleanup" --disable-settings-layers=SolutionPersonal --verbosity=WARN
+jb cleanupcode "${COMMAND_ARG_ARRAY[@]}" ReSharperCleanupCodeDemo.sln
 
 RE_FORMATTED_FILES=$(git diff --name-only)
 
