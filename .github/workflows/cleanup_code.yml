@@ -1,0 +1,32 @@
+name: ReSharper CLI CleanupCode
+
+on: [ push ]
+
+jobs:
+    cleanup:
+        runs-on: ubuntu-latest
+        name: Cleanup Code
+        
+        steps:
+            -   name: Checkout
+                uses: actions/checkout@v3
+
+            -   name: Setup .NET
+                uses: actions/setup-dotnet@v3
+                with:
+                    dotnet-version: 7.0.x
+
+            -   name: Restore Dependencies
+                run: dotnet restore ReSharperCleanupCodeDemo.sln
+                
+            -   name: Cleanup Code
+                id: cleanup
+                uses: ArturWincenciak/ReSharper_CleanupCode@v4.14
+                with:
+                    solution: 'ReSharperCleanupCodeDemo.sln'
+                    fail_on_reformat_needed: 'no'
+                    auto_commit: 'yes'
+                    jb_cleanup_code_arg: '--verbosity=INFO --profile=Built-in: Full Cleanup --exclude=**UnitTests/**.*'
+                    commit_message: 'Cleanup code by ReSharper CLI CleanupCode GitHub Action'
+                    commit_creator_email: 'cleanupcode@github.action'
+                    commit_creator_name: 'CleanupCode Action'
