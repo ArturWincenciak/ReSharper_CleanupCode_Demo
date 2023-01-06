@@ -21,7 +21,7 @@ jobs:
                 
             -   name: Cleanup Code
                 id: cleanup
-                uses: ArturWincenciak/ReSharper_CleanupCode@v4.14
+                uses: ArturWincenciak/ReSharper_CleanupCode@v2.0
                 with:
                     solution: 'ReSharperCleanupCodeDemo.sln'
                     fail_on_reformat_needed: 'no'
