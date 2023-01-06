@@ -30,3 +30,27 @@ jobs:
                     commit_message: 'Cleanup code by ReSharper CLI CleanupCode GitHub Action'
                     commit_creator_email: 'cleanupcode@github.action'
                     commit_creator_name: 'CleanupCode Action'
+    inspection:
+        runs-on: ubuntu-latest
+        name: CLI InspectCode
+        needs: cleanup
+
+        steps:
+            -   name: Checkout
+                uses: actions/checkout@v3
+
+            -   name: Setup .NET
+                uses: actions/setup-dotnet@v3
+                with:
+                    dotnet-version: 6.0.x
+
+            -   name: Restore Dependencies
+                run: dotnet restore Blef.sln
+
+            -   name: Inspect code
+                uses: muno92/resharper_inspectcode@1.6.5
+                with:
+                    solutionPath: ./Blef.sln
+                    failOnIssue: 1
+                    minimumSeverity: notice
+                    solutionWideAnalysis: true
