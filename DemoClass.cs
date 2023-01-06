@@ -11,6 +11,10 @@ internal class DemoClass
     public int PublicMethod() =>
         _privateProperty;
 
-    private int PrivateMethod() =>
-        _privateProperty;
+    private int PrivateMethod()
+    {
+        return _privateProperty;
+    }
+
+    private const string Graham = "2G";
 }
