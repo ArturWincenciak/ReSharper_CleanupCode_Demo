@@ -50,7 +50,7 @@ jobs:
             -   name: Inspect code
                 uses: muno92/resharper_inspectcode@1.6.5
                 with:
-                    solutionPath: ./Blef.sln
+                    solutionPath: ./ReSharperCleanupCodeDemo.sln
                     failOnIssue: 1
                     minimumSeverity: notice
                     solutionWideAnalysis: true
