@@ -45,7 +45,7 @@ jobs:
                     dotnet-version: 7.0.x
 
             -   name: Restore Dependencies
-                run: dotnet restore Blef.sln
+                run: dotnet restore ReSharperCleanupCodeDemo.sln
 
             -   name: Inspect code
                 uses: muno92/resharper_inspectcode@1.6.5
