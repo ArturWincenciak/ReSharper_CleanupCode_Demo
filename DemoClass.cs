@@ -2,15 +2,22 @@ namespace ReSharperCleanupCodeDemo;
 
 internal class DemoClass
 {
-    private readonly int _privateProperty;
     public int PublicProperty { get; set; }
 
-    public DemoClass(int privateProperty) =>
+    private readonly int _privateProperty;
+
+    public DemoClass(int privateProperty)
+    {
         _privateProperty = privateProperty;
+    }
 
-    public int PublicMethod() =>
-        _privateProperty;
+    public int PublicMethod()
+    {
+        return _privateProperty;
+    }
 
-    private int PrivateMethod() =>
-        _privateProperty;
+    private int PrivateMethod()
+    {
+        return _privateProperty;
+    }
 }
