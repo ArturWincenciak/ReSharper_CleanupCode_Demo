@@ -2,6 +2,7 @@ namespace ReSharperCleanupCodeDemo;
 
 internal class DemoClass
 {
+    private const string Graham = "2G";
     private readonly int _privateProperty;
     public int PublicProperty { get; set; }
 
@@ -11,10 +12,6 @@ internal class DemoClass
     public int PublicMethod() =>
         _privateProperty;
 
-    private int PrivateMethod()
-    {
-        return _privateProperty;
-    }
-
-    private const string Graham = "2G";
+    private int PrivateMethod() =>
+        _privateProperty;
 }
