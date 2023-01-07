@@ -2,29 +2,21 @@ namespace ReSharperCleanupCodeDemo;
 
 internal class DemoClass : IDemoInterface
 {
-    private int PrivateMethod()
-    {
-        return _privateProperty;
-    }
+    private readonly int _privateProperty;
 
     public string InterfaceProperty { get; set; }
 
-    public DemoClass(int privateProperty)
-    {
-        _privateProperty = privateProperty;
-    }
-
     public int PublicProperty { get; set; }
 
-    public int PublicMethod()
-    {
-        return _privateProperty;
-    }
+    public DemoClass(int privateProperty) =>
+        _privateProperty = privateProperty;
 
-    public void InterfaceMethod()
-    {
+    public void InterfaceMethod() =>
         Console.WriteLine(nameof(InterfaceMethod));
-    }
 
-    private readonly int _privateProperty;
+    private int PrivateMethod() =>
+        _privateProperty;
+
+    public int PublicMethod() =>
+        _privateProperty;
 }
