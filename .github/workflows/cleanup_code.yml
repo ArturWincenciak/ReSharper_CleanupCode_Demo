@@ -32,7 +32,7 @@ jobs:
                     commit_creator_name: 'CleanupCode Action'
     inspection:
         runs-on: ubuntu-latest
-        name: CLI InspectCode
+        name: Inspect Code
         needs: cleanup
 
         steps:
