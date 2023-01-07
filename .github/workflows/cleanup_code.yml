@@ -30,6 +30,7 @@ jobs:
                     commit_message: 'Cleanup code by ReSharper CLI CleanupCode GitHub Action'
                     commit_creator_email: 'cleanupcode@github.action'
                     commit_creator_name: 'CleanupCode Action'
+    
     inspection:
         runs-on: ubuntu-latest
         name: Inspect Code
