@@ -93,11 +93,46 @@ steps:
 
 ## Shared team configuration
 
-### .editorconfig
+### Solution team-shared settings in `*.sln.DotSettings`
 
-### *.sln.DotSettings
+All your setting should be saved in ['Solution team-shared' layer](https://www.jetbrains.com/help/rider/Sharing_Configuration_Options.html#solution-team-shared-layer).
+In this project here is the file: [ReSharperCleanupCodeDemo.sln.DotSettings](https://github.com/ArturWincenciak/ReSharper_CleanupCode_Demo/blob/main/ReSharperCleanupCodeDemo.sln.DotSettings).
 
-### Set up your --profile
+### Export code style settings to `.editorconfig`
+
+Read more here:
+- [Use EditorConfig](https://www.jetbrains.com/help/rider/Using_EditorConfig.html)
+- [Export code style settings to EditorConfig](https://www.jetbrains.com/help/rider/Using_EditorConfig.html#export-code-style-settings)
+
+I suggest exporting all settings, including default settings, to a [.editorconfig](https://github.com/ArturWincenciak/ReSharper_CleanupCode_Demo/blob/main/.editorconfig) file. It is important to explicitly
+save all default settings to avoid potential issues in the future caused by changes in default settings in newer
+versions of the software. It is important to explicitly save all default settings in a transparent manner.
+
+### Set up your `--profile`
+
+Read more here: 
+- [Code cleanup profiles ](https://www.jetbrains.com/help/rider/2022.3/Code_Cleanup__Index.html#profiles)
+
+As you can see in the [cleanup_code.yaml](https://github.com/ArturWincenciak/ReSharper_CleanupCode_Demo/blob/main/.github/workflows/cleanup_code.yml) file:
+
+```yaml
+jb_cleanup_code_arg: '--verbosity=INFO --profile=Almost Full Cleanup --exclude=**UnitTests/**.*'
+```
+
+one of the settings is the `--profile` flag. I have set my profile to be named `Almost Full Cleanup`.
+
+I have configured my profile to exclude `*.md` files and the `.editorconfig` file from the cleanup."
+
+![Code Cleanup Profiles](assets/code_cleanup_profiles.png)
+
+### Set up your type layout patterns
+
+Read more here:
+- [Rearrange members with file and type layout patterns](https://www.jetbrains.com/help/rider/File_and_Type_Layout.html)
+
+My current favorite setting looks like this ([ReSharperCleanupCodeDemo.sln.DotSettings](https://github.com/ArturWincenciak/ReSharper_CleanupCode_Demo/blob/main/ReSharperCleanupCodeDemo.sln.DotSettings)):
+
+![Code Cleanup File Layout](assets/code_cleanup_file_layout.png)
 
 ## Clean up your code in local repo
 
@@ -139,6 +174,3 @@ cc
 ```bash
 cc -a no
 ```
-
-
-
