@@ -184,10 +184,10 @@ cc -a no
 # Cleanup Code works perfectly with Inspect Code
 
 There are situations where Cleanup Code does not do the entire job for us, but we can still greatly help ourselves and
-speed up Code Review by adding an additional step that performs an inspection of the code and, if it sees anything
-concerning, adds a comment to the submitted Pull Request on our behalf.
+speed up ours Code Review process by adding an additional automatic step that performs an inspection of the code and,
+adds a comments to the submitted Pull Request on our behalf.
 
-Below, I demonstrate how to combine [ReSharper CLI CleanupCode](https://github.com/marketplace/actions/resharper-cli-cleanupcode) 
+Down below, I demonstrate how to combine [ReSharper CLI CleanupCode](https://github.com/marketplace/actions/resharper-cli-cleanupcode) 
 and [ReSharper CLI InspectCode](https://github.com/marketplace/actions/resharper-cli-inspectcode) using 
 [GitHub Action](https://github.com/ArturWincenciak/ReSharper_CleanupCode_Demo/blob/main/.github/workflows/cleanup_code.yml)
 that contains two jobs: `cleanup` and `inspection`.
