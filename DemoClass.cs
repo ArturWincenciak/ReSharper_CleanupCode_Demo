@@ -4,6 +4,8 @@ internal class DemoClass : IDemoInterface
 {
     private readonly int _privateProperty;
 
+    private string DonaldKnuth = "Conway";
+
     public string InterfaceProperty { get; set; }
 
     public int PublicProperty { get; set; }
@@ -19,6 +21,4 @@ internal class DemoClass : IDemoInterface
 
     public int PublicMethod() =>
         _privateProperty;
-
-    private string DonaldKnuth = "Conway";
 }
