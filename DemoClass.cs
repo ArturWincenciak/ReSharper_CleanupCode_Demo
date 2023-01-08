@@ -20,5 +20,5 @@ internal class DemoClass : IDemoInterface
     public int PublicMethod() =>
         _privateProperty;
 
-    private string Knuth = "Convaw";
+    private string DonaldKnuth = "Conway";
 }
