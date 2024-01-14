@@ -1,5 +1,8 @@
 #  ReSharper CLI CleanupCode GitHub Action Demo
 
+> ### Visit the blog post to read more about the context of use cases
+> [Zaoszczędź swój czas, niech kod wyczyści się sam – ReSharper CLI CleanupCode GitHub Action](https://teo-vincent.blog/2023/12/31/zaoszczedz-swoj-czas-niech-kod-wyczysci-sie-sam-resharper-cli-cleanupcode-github-action/)
+
 #### Action in Marketplace: [ReSharper CLI CleanupCode](https://github.com/marketplace/actions/resharper-cli-cleanupcode)
 #### Action in Repository: [ArturWincenciak/ReSharper_CleanupCode@v2.0](https://github.com/ArturWincenciak/ReSharper_CleanupCode)
 
