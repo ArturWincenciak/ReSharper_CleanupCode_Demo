@@ -254,3 +254,6 @@ src/ElevenQ.Server.code-workspace
 .DS_Store
 
 TODO.md
+
+# Rider Cache
+.mono/*
