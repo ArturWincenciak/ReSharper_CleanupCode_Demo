@@ -54,11 +54,7 @@ jobs:
         with:
           solution: 'ReSharperCleanupCodeDemo.sln'
           fail_on_reformat_needed: 'no'
-          auto_commit: 'yes'
           jb_cleanup_code_arg: '--verbosity=INFO --profile=Built-in: Full Cleanup --exclude=**UnitTests/**.*'
-          commit_message: 'Cleanup code by ReSharper CLI CleanupCode GitHub Action'
-          commit_creator_email: 'cleanup@up.action'
-          commit_creator_name: 'Clean Up'
 ```
 ### Here you have sequence of steps
 
@@ -228,11 +224,7 @@ jobs:
         with:
           solution: 'ReSharperCleanupCodeDemo.sln'
           fail_on_reformat_needed: 'no'
-          auto_commit: 'yes'
           jb_cleanup_code_arg: '--verbosity=INFO --profile=Almost Full Cleanup --exclude=**UnitTests/**.*'
-          commit_message: 'Cleanup code by ReSharper CLI CleanupCode GitHub Action'
-          commit_creator_email: 'cleanupcode@github.action'
-          commit_creator_name: 'CleanupCode Action'
   
   inspection:
     runs-on: ubuntu-latest
