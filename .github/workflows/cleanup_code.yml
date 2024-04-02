@@ -24,7 +24,7 @@ jobs:
                 uses: ArturWincenciak/ReSharper_CleanupCode@v3.0
                 with:
                     solution: 'ReSharperCleanupCodeDemo.sln'
-                    fail_on_reformat_needed: 'no'
+                    fail_on_reformat_needed: 'yes'
                     jb_cleanup_code_arg: '--verbosity=INFO'
     
     inspection:
